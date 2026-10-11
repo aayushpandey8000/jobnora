@@ -864,6 +864,26 @@ function updateNavAuth(session){
   }
 }
 
+function applyRecipientEmailPolicy(form){
+  const field=form?.elements?.email;
+  if(!field)return;
+  const user=window.applyPilotSession?.user;
+  const isAdmin=String(user?.email||'').toLowerCase()==='aayushpandey8000@gmail.com';
+  if(!isAdmin){
+    if(user?.email)field.value=user.email;
+    field.readOnly=true;
+    field.setAttribute('aria-readonly','true');
+    field.title='PDFs are sent to your signed-in account email. Only the administrator can change the delivery email.';
+    field.style.opacity='.78';
+    field.style.cursor='not-allowed';
+  }else{
+    field.readOnly=false;
+    field.removeAttribute('aria-readonly');
+    field.title='Administrator only: choose the email address for PDF delivery.';
+    field.style.opacity='';
+    field.style.cursor='';
+  }
+}
 function adminAuthorized(){
   const email=String(window.applyPilotSession?.user?.email||'').toLowerCase();
   return email===ADMIN_EMAIL;
@@ -1325,7 +1345,7 @@ function resumeFlow(){
     <p class="lead" style="margin-top:12px">Your account email and saved resume are filled automatically. Upload a new resume only when you want to replace the saved one.</p></div>
     <div class="flow-note"><b>Flow:</b> Job link / JD → AI tailoring → ATS resume → Email</div>
     <form class="flow-form" id="resumeFlowForm">
-      <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+      <label>PDF delivery email <span class="recipient-email-note" style="color:var(--mu);font-weight:400">(only admin can change this)</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
       <label>Job link <span style="color:var(--mu);font-weight:400">(optional if you paste the JD)</span><input type="url" name="jobLink" placeholder="https://company.com/jobs/..."></label>
       <label>Job description <span style="color:var(--mu);font-weight:400">(optional if you provide a job link)</span><textarea name="jobDescription" placeholder="Paste the job description here if you have it..."></textarea></label>
       <label>Your resume<input type="file" name="resume" accept=".pdf,.tex"></label>
@@ -1338,6 +1358,7 @@ function resumeFlow(){
   form.onsubmit=e=>{e.preventDefault();submitWithAuth(()=>resumeSubmit(form));};
   async function resumeSubmit(f){
     const b=f.querySelector(".flow-submit");
+    applyRecipientEmailPolicy(f);
     if(!f.elements.jobLink.value.trim() && !f.elements.jobDescription.value.trim()){
       f.elements.jobDescription.focus();f.elements.jobDescription.setCustomValidity("Add a job link or paste a job description.");f.reportValidity();f.elements.jobDescription.setCustomValidity("");return;
     }
@@ -1360,7 +1381,7 @@ function advancedFlow(){
     <p class="lead" style="margin-top:12px">Tell Jobnora your role, experience, work style and education. We use those signals together before a job can consume a credit.</p></div>
     <div class="flow-note"><b>Freshers:</b> choose “Fresher / 0 years” and enter your degree or field (for example BBA, B.Tech CSE, BSc Computer Science).</div>
     <form class="flow-form" id="advancedFlowForm">
-      <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+      <label>PDF delivery email <span class="recipient-email-note" style="color:var(--mu);font-weight:400">(only admin can change this)</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
       <label>Target job title<input type="text" name="role" placeholder="e.g. Business Analyst, Software Engineer" required></label>
       <div class="flow-note" style="margin-top:0"><b>Job source:</b> LinkedIn</div>
       <div class="two">
@@ -1389,7 +1410,8 @@ function advancedFlow(){
   const form=$("#advancedFlowForm");hydrateResumeField(form);
   form.onsubmit=e=>{e.preventDefault();submitWithAuth(()=>advancedSubmit(form));};
   async function advancedSubmit(f){
-    const b=f.querySelector(".flow-submit");const selected=f.elements.resume.files?.[0];
+    const b=f.querySelector(".flow-submit");
+    applyRecipientEmailPolicy(f);const selected=f.elements.resume.files?.[0];
     if(selected){try{await saveResumeForUser(selected);}catch(err){showFlowSubmitted("Resume could not be saved","Please check your connection and try uploading the resume again.");return;}}
     const resumeFile=selected||window.jobnoraSavedResume;if(!resumeFile){f.elements.resume.required=true;f.elements.resume.focus();f.reportValidity();return;}
     const fd=new FormData();fd.append("mode","advanced");fd.append("email",f.elements.email.value.trim());

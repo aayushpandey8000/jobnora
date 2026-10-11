@@ -1319,7 +1319,22 @@ async function hydrateResumeField(form){
   const resumeInput=form?.elements?.resume;
   const status=form?.querySelector('[data-resume-status]');
   const user=await getLoggedInUser();
-  if(emailInput&&user?.email){emailInput.value=user.email;emailInput.readOnly=true;emailInput.setAttribute('aria-readonly','true');}
+  if(emailInput&&user?.email){
+    emailInput.value=user.email;
+    const isAdmin=String(user.email||'').toLowerCase()===ADMIN_EMAIL;
+    emailInput.readOnly=!isAdmin;
+    if(isAdmin){
+      emailInput.removeAttribute('aria-readonly');
+      emailInput.title='Administrator only: you can edit the PDF delivery email.';
+      emailInput.style.opacity='';
+      emailInput.style.cursor='';
+    }else{
+      emailInput.setAttribute('aria-readonly','true');
+      emailInput.title='PDFs are sent to your signed-in account email.';
+      emailInput.style.opacity='.78';
+      emailInput.style.cursor='not-allowed';
+    }
+  }
   const saved=await loadSavedResume();
   if(status){
     status.textContent=saved?`✓ Saved resume ready: ${saved.name} — you can use it without uploading again.`:'No saved resume yet. Upload your resume once and Jobnora will remember it for your next login.';

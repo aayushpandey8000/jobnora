@@ -937,6 +937,9 @@ async function setupAuthChannel(user){
   if(authChannel){try{await sb.removeChannel(authChannel);}catch(e){} authChannel=null;}
   authChannel=sb.channel('jobnora-auth-'+user.id);
   authChannel.on('broadcast',{event:'global-logout'},async()=>{
+    // The tab initiating logout already shows its own loading animation. Ignore its broadcast here;
+    // other tabs (not transitioning) still clear their local session immediately.
+    if(authTransitioning)return;
     window.applyPilotSession=null;
     updateNavAuth(null);
     try{await sb.auth.signOut({scope:'local'});}catch(e){}

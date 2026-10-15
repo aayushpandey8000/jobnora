@@ -1044,6 +1044,40 @@ function authError(msg){
   authMsg.style.padding='';
   authMsg.style.borderRadius='';
 }
+<style id="jobnora-success-animation-css">
+#jobnoraSuccessToast{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:20px;background:rgba(3,20,14,.38);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .22s ease}
+#jobnoraSuccessToast.show{opacity:1;pointer-events:auto}
+#jobnoraSuccessToast .success-card{width:min(360px,100%);padding:30px 26px 26px;border:1px solid rgba(34,197,94,.28);border-radius:24px;background:linear-gradient(145deg,#fff 0%,#f0fdf4 100%);color:#14532d;text-align:center;box-shadow:0 28px 90px rgba(0,0,0,.28);transform:translateY(14px) scale(.96);transition:transform .32s cubic-bezier(.2,.85,.25,1)}
+#jobnoraSuccessToast.show .success-card{transform:translateY(0) scale(1)}
+#jobnoraSuccessToast .success-icon{width:78px;height:78px;margin:0 auto 17px;border-radius:50%;display:grid;place-items:center;background:#dcfce7;box-shadow:0 0 0 0 rgba(34,197,94,.28);animation:jnSuccessPulse 1.6s ease-out infinite}
+#jobnoraSuccessToast .success-icon svg{width:43px;height:43px;stroke:#16a34a;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#jobnoraSuccessToast .success-icon path{stroke-dasharray:38;stroke-dashoffset:38;animation:jnCheckDraw .55s .12s ease forwards}
+#jobnoraSuccessToast h3{margin:0 0 8px;font-size:1.4rem;letter-spacing:-.035em;color:#166534}
+#jobnoraSuccessToast p{margin:0;color:#3f6950;font-size:.94rem;line-height:1.55}
+#jobnoraSuccessToast .success-spark{position:absolute;width:6px;height:6px;border-radius:50%;background:#4ade80;animation:jnSpark .85s ease-out both}
+@keyframes jnCheckDraw{to{stroke-dashoffset:0}}@keyframes jnSuccessPulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.25)}100%{box-shadow:0 0 0 17px rgba(34,197,94,0)}}@keyframes jnSpark{0%{opacity:0;transform:translate(0,12px) scale(.3)}25%{opacity:1}100%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(1)}}
+@media(prefers-reduced-motion:reduce){#jobnoraSuccessToast,#jobnoraSuccessToast .success-card,#jobnoraSuccessToast .success-icon,#jobnoraSuccessToast .success-icon path{animation:none;transition:none}}
+</style>
+<div id="jobnoraSuccessToast" aria-hidden="true" role="status" aria-live="polite">
+ <div class="success-card"><div class="success-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 25.5 20 34 37 15"/></svg></div><h3 id="jobnoraSuccessTitle">You're all set!</h3><p id="jobnoraSuccessText">Welcome to Jobnora.</p></div>
+</div>
+<script>
+(function(){
+ let successTimer;
+ window.jobnoraShowSuccess=function(title,message,duration=1900){
+  const root=document.getElementById('jobnoraSuccessToast');if(!root)return;
+  document.getElementById('jobnoraSuccessTitle').textContent=title||"You're all set!";
+  document.getElementById('jobnoraSuccessText').textContent=message||'Welcome to Jobnora.';
+  root.querySelectorAll('.success-spark').forEach(x=>x.remove());
+  const card=root.querySelector('.success-card');
+  for(let i=0;i<10;i++){const s=document.createElement('i');s.className='success-spark';s.style.left=(50+Math.cos(i*Math.PI/5)*34)+'%';s.style.top=(36+Math.sin(i*Math.PI/5)*30)+'%';s.style.setProperty('--sx',(Math.cos(i*Math.PI/5)*35)+'px');s.style.setProperty('--sy',(Math.sin(i*Math.PI/5)*35)+'px');root.appendChild(s)}
+  root.classList.add('show');root.setAttribute('aria-hidden','false');
+  clearTimeout(successTimer);successTimer=setTimeout(()=>{root.classList.remove('show');root.setAttribute('aria-hidden','true')},duration);
+ };
+ rootClose=()=>{const root=document.getElementById('jobnoraSuccessToast');if(root){root.classList.remove('show');root.setAttribute('aria-hidden','true')}};
+ document.getElementById('jobnoraSuccessToast')?.addEventListener('click',rootClose);
+})();
+</script>
 function authSuccess(msg){
   authMsg.textContent=msg;
   authMsg.style.color='var(--ok)';
@@ -1119,7 +1153,7 @@ authForm.onsubmit=async e=>{
       return;
     }
     if(isSignup && !r.data.session){
-      authSuccess('Account created successfully! Please check your email inbox for a confirmation link. After confirming your email, return here and log in.');
+      authSuccess('Account created successfully! Please check your email inbox for a confirmation link. After confirming your email, return here and log in.');window.jobnoraShowSuccess('Account created!','Check your inbox to confirm your email, then log in.',2600);
       authSubmit.disabled=false;
       authSubmit.textContent='Go to log in →';
       authSubmit.type='button';
@@ -1138,7 +1172,7 @@ authForm.onsubmit=async e=>{
       updateNavAuth(r.data.session);
       const action=pendingAuthAction;
       pendingAuthAction=null;
-      showAuthLoading('Login successful');
+      showAuthLoading('Login successful');window.jobnoraShowSuccess('Login successful','Welcome back! Your Jobnora workspace is ready.',1900);
       setTimeout(()=>{
         closeAuth();
         if(action)setTimeout(()=>action(),0);

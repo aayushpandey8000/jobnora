@@ -742,13 +742,7 @@ section.motion-in h2{animation:headingIn .85s .08s var(--motion-ease) both}
 .dashboard-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.dashboard-head h2{margin:5px 0 6px}.dashboard-head p{margin:0;color:var(--mu);font-size:.9rem}.dashboard-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0}.dash-stat{padding:18px}.dash-stat span{display:block;color:var(--mu);font-size:.8rem}.dash-stat strong{display:block;font-size:2rem;margin-top:4px}.dashboard-list-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 12px}.dashboard-list-head h3{margin:0}.dashboard-list-head span{font-size:.76rem;color:var(--mu)}.dashboard-list{display:grid;gap:8px}.dash-row{display:grid;grid-template-columns:1.3fr 1fr auto;gap:16px;align-items:center;padding:15px 16px;border:1px solid var(--bd);border-radius:13px;background:var(--bg)}.dash-main b,.dash-main small{display:block}.dash-main small,.dash-meta small{color:var(--mu);font-size:.78rem;margin-top:3px}.dash-status{font-size:.76rem;font-weight:650;padding:6px 9px;border-radius:999px;background:var(--acs);color:var(--ac);white-space:nowrap}.dash-status select{border:0;background:transparent;color:inherit;font:inherit;font-weight:650;outline:none;cursor:pointer}.dash-status select option{color:#111;background:#fff}.dash-actions{display:flex;align-items:center;gap:8px}.dash-save{font-size:.72rem;color:var(--ok);min-width:38px}.dash-row.is-saving{opacity:.7}.dash-empty{padding:28px;border:1px dashed var(--bd);border-radius:13px;color:var(--mu);text-align:center}.dash-error{color:var(--err,#c0392b);background:color-mix(in srgb,#c0392b 7%,transparent);border:1px solid color-mix(in srgb,#c0392b 22%,var(--bd));padding:14px;border-radius:12px;font-size:.85rem}
 @media(max-width:700px){.dashboard-box{padding:18px}.dashboard-stats{grid-template-columns:repeat(2,1fr)}.dash-row{grid-template-columns:1fr;gap:9px}.dash-status{justify-self:start}}
 #authGate{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.42);display:grid;place-items:center;padding:20px;overflow:auto;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}#authGate[hidden]{display:none}.auth-close{position:absolute;top:12px;right:12px}.auth-box{width:min(440px,100%);padding:28px}.auth-box h2{font-size:2rem}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:20px 0}.auth-tabs button{padding:10px;border:1px solid var(--bd);background:var(--bg);border-radius:9px}.auth-tabs button.active{background:var(--tx);color:var(--bg)}.auth-form{display:grid;gap:12px}.auth-form label{display:grid;gap:6px;font-size:.85rem;font-weight:500}.auth-form input{width:100%;padding:12px;border:1px solid var(--bd);border-radius:9px;background:var(--bg);color:var(--tx);font:inherit}.auth-msg{min-height:20px;font-size:.82rem;color:var(--mu)}.auth-user{display:flex;align-items:center;gap:8px}.auth-user button{padding:7px 11px}.auth-user-email{font-size:.82rem;color:var(--tx);max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}.auth-user button[hidden]{display:none!important}.auth-user-name{font-size:.86rem;font-weight:600;color:var(--tx);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media(max-width:760px){.auth-user-email{display:none}}@media(max-width:600px){#nav .nv{gap:8px}#nav .nl{display:none}#navAuth{margin-left:auto}.auth-user button{padding:7px 9px}.nv>.btn[data-start]{display:none}}.auth-brand{display:flex;align-items:center;gap:9px;font-weight:600;margin-bottom:22px}.auth-brand .lm{width:28px;height:28px}
-.auth-success-visual{display:grid;justify-items:center;gap:10px;margin:4px 0 16px;animation:authSuccessIn .38s cubic-bezier(.2,.8,.2,1) both}.auth-success-ring{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--ok) 13%,transparent);border:1px solid color-mix(in srgb,var(--ok) 40%,transparent);box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 20%,transparent);animation:authSuccessPulse 1.4s ease-out both}.auth-success-ring svg{width:31px;height:31px;stroke:var(--ok);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.auth-success-ring path{stroke-dasharray:28;stroke-dashoffset:28;animation:authCheckDraw .42s .18s ease-out forwards}.auth-success-title{font-weight:750;font-size:1.03rem;letter-spacing:-.02em}.auth-success-sub{font-size:.83rem;color:var(--mu);text-align:center;max-width:280px;line-height:1.55}@keyframes authSuccessIn{from{opacity:0;transform:translateY(7px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes authCheckDraw{to{stroke-dashoffset:0}}@keyframes authSuccessPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 22%,transparent)}100%{box-shadow:0 0 0 13px transparent}}@media(prefers-reduced-motion:reduce){.auth-success-visual,.auth-success-ring,.auth-success-ring path{animation:none!important}.auth-success-ring path{stroke-dashoffset:0}}.auth-loading{display:none;position:absolute;inset:0;background:var(--bg);border-radius:inherit;align-items:center;justify-content:center;text-align:center;padding:28px;z-index:5}.auth-loading.show{display:flex}.auth-loading-inner{display:grid;justify-items:center;gap:14px}
-.auth-loading.success-state .auth-loading-inner{animation:authSuccessIn .38s ease-out both}
-.auth-overlay-success-ring{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;border:2px solid color-mix(in srgb,var(--ok) 65%,transparent);background:var(--oks);color:var(--ok);box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 22%,transparent);animation:authSuccessPulse 1.15s ease-out both}
-.auth-overlay-success-ring svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.auth-overlay-success-ring path{stroke-dasharray:28;stroke-dashoffset:28;animation:authCheckDraw .42s .14s ease-out forwards}
-.auth-loading.success-state .auth-loader{display:none}
-@media(prefers-reduced-motion:reduce){.auth-loading.success-state .auth-loading-inner,.auth-overlay-success-ring,.auth-overlay-success-ring path{animation:none!important}.auth-overlay-success-ring path{stroke-dashoffset:0}}.auth-loader{width:34px;height:34px;border:3px solid var(--bd);border-top-color:var(--tx);border-radius:50%;animation:authSpin .8s linear infinite}.auth-loading-title{font-weight:650;font-size:1rem}.auth-loading-sub{font-size:.84rem;color:var(--mu)}.auth-dots::after{content:'';display:inline-block;width:1.4em;text-align:left;animation:authDots 1.1s steps(4,end) infinite}@keyframes authSpin{to{transform:rotate(360deg)}}@keyframes authDots{0%{content:''}25%{content:'.'}50%{content:'..'}75%,100%{content:'...'}}
+.auth-loading{display:none;position:absolute;inset:0;background:var(--bg);border-radius:inherit;align-items:center;justify-content:center;text-align:center;padding:28px;z-index:5}.auth-loading.show{display:flex}.auth-loading-inner{display:grid;justify-items:center;gap:14px}.auth-loader{width:34px;height:34px;border:3px solid var(--bd);border-top-color:var(--tx);border-radius:50%;animation:authSpin .8s linear infinite}.auth-loading-title{font-weight:650;font-size:1rem}.auth-loading-sub{font-size:.84rem;color:var(--mu)}.auth-dots::after{content:'';display:inline-block;width:1.4em;text-align:left;animation:authDots 1.1s steps(4,end) infinite}@keyframes authSpin{to{transform:rotate(360deg)}}@keyframes authDots{0%{content:''}25%{content:'.'}50%{content:'..'}75%,100%{content:'...'}}
 
 </style>
 <div id="dashboardGate" hidden aria-hidden="true">
@@ -943,9 +937,6 @@ async function setupAuthChannel(user){
   if(authChannel){try{await sb.removeChannel(authChannel);}catch(e){} authChannel=null;}
   authChannel=sb.channel('jobnora-auth-'+user.id);
   authChannel.on('broadcast',{event:'global-logout'},async()=>{
-    // The tab initiating logout already shows its own loading animation. Ignore its broadcast here;
-    // other tabs (not transitioning) still clear their local session immediately.
-    if(authTransitioning)return;
     window.applyPilotSession=null;
     updateNavAuth(null);
     try{await sb.auth.signOut({scope:'local'});}catch(e){}
@@ -987,25 +978,19 @@ navLogout.onclick=async()=>{
   }
   window.applyPilotSession=null;
   updateNavAuth(null);
-  showAuthSuccessOverlay('Logged out successfully','Your Jobnora session has been securely ended.');
   setTimeout(()=>{
     hideAuthLoading();
     authGate.hidden=true;
     document.body.style.overflow='';
     navLogout.disabled=false;
     navLogout.textContent='Log out';
-  },1150);
+  },1000);
 };
 let pendingAuthAction=null;
 function showAuthLoading(title='Signing you in', sub='Just a moment while we refresh your session.') {
   authTransitioning=true;
-  authLoading.classList.remove('success-state');
-  const inner=authLoading.querySelector('.auth-loading-inner');
-  if(inner) inner.innerHTML='<div class="auth-loader" aria-hidden="true"></div><div class="auth-loading-title" id="authLoadingTitle"></div><div class="auth-loading-sub" id="authLoadingSub"></div>';
-  const titleEl=document.getElementById('authLoadingTitle');
-  const subEl=document.getElementById('authLoadingSub');
-  titleEl.innerHTML=`${title}<span class="auth-dots"></span>`;
-  subEl.textContent=sub;
+  authLoadingTitle.innerHTML=`${title}<span class="auth-dots"></span>`;
+  authLoadingSub.textContent=sub;
   authLoading.classList.add('show');
   authLoading.setAttribute('aria-hidden','false');
   authForm.setAttribute('aria-hidden','true');
@@ -1013,17 +998,8 @@ function showAuthLoading(title='Signing you in', sub='Just a moment while we ref
   loginTab.disabled=true;
   signupTab.disabled=true;
 }
-function showAuthSuccessOverlay(title, sub) {
-  authLoading.classList.add('success-state');
-  const inner=authLoading.querySelector('.auth-loading-inner');
-  inner.innerHTML='<div class="auth-overlay-success-ring" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 16.5l6 6L25 10.5"/></svg></div><div class="auth-loading-title"></div><div class="auth-loading-sub"></div>';
-  inner.querySelector('.auth-loading-title').textContent=title;
-  inner.querySelector('.auth-loading-sub').textContent=sub;
-}
 function hideAuthLoading(){
-  authLoading.classList.remove('success-state');
-  const inner=authLoading.querySelector('.auth-loading-inner');
-  if(inner) inner.innerHTML='<div class="auth-loader" aria-hidden="true"></div><div class="auth-loading-title" id="authLoadingTitle">Signing you in<span class="auth-dots"></span></div><div class="auth-loading-sub" id="authLoadingSub">Just a moment while we refresh your session.</div>';
+  authLoadingSub.textContent='Just a moment while we refresh your session.';
   authLoading.classList.remove('show');
   authLoading.setAttribute('aria-hidden','true');
   authForm.removeAttribute('aria-hidden');
@@ -1069,27 +1045,12 @@ function authError(msg){
   authMsg.style.borderRadius='';
 }
 function authSuccess(msg){
-  authMsg.replaceChildren();
-  authMsg.style.color='var(--tx)';
-  authMsg.style.fontWeight='';
-  authMsg.style.background='transparent';
-  authMsg.style.padding='0';
-  authMsg.style.borderRadius='0';
-  const visual=document.createElement('div');
-  visual.className='auth-success-visual';
-  const ring=document.createElement('div');
-  ring.className='auth-success-ring';
-  ring.setAttribute('aria-hidden','true');
-  ring.innerHTML='<svg viewBox="0 0 32 32"><path d="M7 16.5l6 6L25 10.5"/></svg>';
-  const title=document.createElement('div');
-  title.className='auth-success-title';
-  title.textContent=/confirmation|check your email/i.test(msg)?'Account created successfully':'Success';
-  const sub=document.createElement('div');
-  sub.className='auth-success-sub';
-  sub.textContent=msg;
-  visual.append(ring,title,sub);
-  authMsg.append(visual);
-  authMsg.setAttribute('aria-live','polite');
+  authMsg.textContent=msg;
+  authMsg.style.color='var(--ok)';
+  authMsg.style.fontWeight='600';
+  authMsg.style.background='color-mix(in srgb, var(--ok) 10%, transparent)';
+  authMsg.style.padding='12px';
+  authMsg.style.borderRadius='10px';
 }
 function closeAuth(){
   hideAuthLoading();
@@ -1177,7 +1138,7 @@ authForm.onsubmit=async e=>{
       updateNavAuth(r.data.session);
       const action=pendingAuthAction;
       pendingAuthAction=null;
-      showAuthLoading('Signing you in','Your account is verified. Getting your workspace ready.');\n      showAuthSuccessOverlay('Login successful','Welcome back to Jobnora.');
+      showAuthLoading('Login successful');
       setTimeout(()=>{
         closeAuth();
         if(action)setTimeout(()=>action(),0);

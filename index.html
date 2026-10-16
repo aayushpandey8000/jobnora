@@ -521,6 +521,29 @@ canvas {
 .theme-toggle{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bd);background:var(--bg2);color:var(--tx);border-radius:999px;padding:7px 11px;font-size:.78rem;font-weight:500;white-space:nowrap;transition:.2s}.theme-toggle:hover{border-color:var(--ac);transform:translateY(-1px)}.theme-icon{font-size:.9rem;line-height:1}.theme-label{min-width:34px;text-align:left}
 @media(max-width:860px){.theme-toggle{padding:7px 9px}.theme-label{display:none}}
 
+/* Mobile navigation: keep account actions and theme control visible */
+#nav .nv{gap:12px}
+#nav .auth-user{display:flex;align-items:center;justify-content:flex-end;gap:6px;min-width:0;flex:0 1 auto}
+#nav .auth-user-name{display:block;max-width:170px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.82rem;color:var(--mu)}
+#nav .theme-toggle{flex:0 0 auto}
+@media(max-width:860px){
+  #nav .nv{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-block:9px}
+  #nav .lg{order:0;flex:1 1 auto;min-width:0}
+  #nav .jobnora-full-logo{width:clamp(126px,34vw,158px);max-width:100%}
+  #nav .auth-user{order:2;flex:1 1 100%;justify-content:flex-start;gap:7px;min-width:0}
+  #nav .auth-user-name{max-width:min(42vw,230px);font-size:.8rem}
+  #nav .auth-user .btn{min-height:36px;padding:7px 10px;font-size:.78rem;white-space:nowrap}
+  #nav .theme-toggle{order:1;margin-left:auto;min-height:36px;padding:7px 10px}
+  #nav .theme-label{display:inline;min-width:0}
+  #nav .nv>[data-start]{order:3;flex:1 1 100%;justify-content:center;min-height:38px}
+}
+@media(max-width:380px){
+  #nav .auth-user{gap:5px}
+  #nav .auth-user-name{max-width:34vw;font-size:.74rem}
+  #nav .auth-user .btn{padding:6px 8px;font-size:.73rem}
+  #nav .theme-toggle{padding:6px 8px;font-size:.73rem}
+}
+
 /* ===== Jobnora premium motion layer ===== */
 .hero{isolation:isolate}
 .hero .w{position:relative}

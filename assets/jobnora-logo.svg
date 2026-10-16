@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-<rect width="1000" height="1000" fill="#05051f"/>
-<g fill="none" stroke="#fff" stroke-width="34" stroke-linecap="square" stroke-linejoin="round">
-<path d="M330 250 H650 V430 H780 V650 C780 735 715 790 630 790 H370 C285 790 220 735 220 650 V625 H365 V820 C365 875 420 915 490 915 C560 915 615 875 615 820 V430"/>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title"><title id="title">Jobnora</title><rect x="0" y="0" width="180" height="180" rx="56" fill="#f4f3f1"/><path d="M49 83 139 51 108 132 92 93 49 83Z" fill="none" stroke="#0b0b0d" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M92 93 139 51" fill="none" stroke="#0b0b0d" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><text x="225" y="125" font-family="Inter, Arial, Helvetica, sans-serif" font-size="86" font-weight="750" letter-spacing="-3.8" fill="#f5f5f5">Jobnora</text></svg>

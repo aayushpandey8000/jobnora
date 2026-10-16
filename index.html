@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jobnora — Your AI agent for the entire job search</title>
+<meta name="theme-color" content="#0C0C0E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop stop-color='%234338F5'/%3E%3Cstop offset='.58' stop-color='%232563EB'/%3E%3Cstop offset='1' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M10 14c0-5 6-8 10-4l25 22V16c0-3 2-5 5-5h4v36c0 5-6 8-10 4L19 29v19c0 3-2 5-5 5h-4V14Z'/%3E%3Cpath fill='%2306B6D4' d='M42 11 57 2v17Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -549,7 +551,8 @@ mark:not(.off){animation:markPop .55s cubic-bezier(.2,.8,.2,1) both}
 .big{transition:transform .4s}.fit .card:hover .big{transform:scale(1.035)}
 .kan .col{transition:transform .35s ease,box-shadow .35s}.kan .col:hover{transform:translateY(-3px);box-shadow:var(--sh)}
 .fin .btn{transition:transform .25s,box-shadow .25s}.fin .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px -12px rgba(0,0,0,.45)}
-#nav .lg .lm{transition:transform .35s cubic-bezier(.2,.8,.2,1),border-radius .35s}.lg:hover .lm{transform:rotate(-8deg) scale(1.08);border-radius:10px}
+#nav .jobnora-mark{width:34px;height:34px;display:block;flex:0 0 auto}.jobnora-wordmark{font-weight:750;letter-spacing:-.055em;background:linear-gradient(100deg,#4338F5 0%,#2563EB 58%,#06B6D4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.auth-brand .jobnora-mark{width:30px;height:30px}.admin-brand{display:flex;align-items:center;gap:9px}.admin-brand .jobnora-mark{width:30px;height:30px}.admin-brand .jobnora-wordmark{font-size:1.2rem}.lg .jobnora-mark{transition:transform .35s cubic-bezier(.2,.8,.2,1)}.lg:hover .jobnora-mark{transform:rotate(-5deg) scale(1.05)}
+.lg .lm{transition:transform .35s cubic-bezier(.2,.8,.2,1),border-radius .35s}.lg:hover .lm{transform:rotate(-8deg) scale(1.08);border-radius:10px}
 @media(max-width:860px){.flow:before{display:none}}
 @media(prefers-reduced-motion:reduce){.hero .pill,.hero h1,.hero .lead,.hero .cta,.hero .jm,.hero:after{animation:none!important}.flow:before{animation:none;transform:none}.mode-card:hover .mode-icon,.mode-card:hover .mode-action,.job:hover,.doc:hover,.kan .col:hover{transform:none}.st.on .n,mark:not(.off){animation:none!important}}
 
@@ -661,7 +664,7 @@ section.motion-in h2{animation:headingIn .85s .08s var(--motion-ease) both}
 </head>
 <body>
 <div id="pg"></div><nav id="nav"><div class="w nv">
-<a href="#top" class="lg" aria-label="Jobnora home"><span class="lm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span>Jobnora</a>
+<a href="#top" class="lg" aria-label="Jobnora home"><svg class="jobnora-mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="jnGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4338F5"/><stop offset=".58" stop-color="#2563EB"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs><path d="M10 14c0-5 6-8 10-4l25 22V16c0-3 2-5 5-5h4v36c0 5-6 8-10 4L19 29v19c0 3-2 5-5 5h-4V14Z" fill="url(#jnGrad)"/><path d="M42 11 57 2v17L42 11Z" fill="#06B6D4"/></svg><span class="jobnora-wordmark">Jobnora</span></a>
 <div class="nl"><a href="#modes">How it works</a><a href="#resume">Tailoring</a><a href="#jobs">Matches</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
 <div class="auth-user" id="navAuth"><span class="auth-user-name" id="navUserName" hidden></span><button class="btn sm" id="navDashboard" type="button" hidden>Dashboard</button><button class="btn a sm" id="navAdmin" type="button" hidden>Admin</button><button class="btn sm" id="navLogin" type="button">Log in</button><button class="btn p sm" id="navLogout" type="button" hidden>Log out</button></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme"><span class="theme-icon" id="themeIcon">☀</span><span class="theme-label" id="themeLabel">Light</span></button><button class="btn p sm" data-start>Choose your mode</button></div></nav>
 
@@ -763,7 +766,7 @@ section.motion-in h2{animation:headingIn .85s .08s var(--motion-ease) both}
 <div id="jobnoraAdmin" aria-hidden="true">
   <div class="admin-wrap">
     <div class="admin-top">
-      <div class="admin-brand">Jobnora <span>Admin</span></div>
+      <div class="admin-brand"><svg class="jobnora-mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="jnGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4338F5"/><stop offset=".58" stop-color="#2563EB"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs><path d="M10 14c0-5 6-8 10-4l25 22V16c0-3 2-5 5-5h4v36c0 5-6 8-10 4L19 29v19c0 3-2 5-5 5h-4V14Z" fill="url(#jnGrad)"/><path d="M42 11 57 2v17L42 11Z" fill="#06B6D4"/></svg><span class="jobnora-wordmark">Jobnora</span><span>Admin</span></div>
       <div class="admin-actions">
         <button class="btn sm" id="adminRefresh" type="button">Refresh</button>
         <button class="btn sm admin-close" id="adminClose" type="button" aria-label="Close admin panel">×</button>
@@ -803,7 +806,7 @@ section.motion-in h2{animation:headingIn .85s .08s var(--motion-ease) both}
 <div id="authGate" hidden>
   <div class="auth-box card" style="position:relative">
     <button type="button" class="btn sm auth-close" id="authClose" aria-label="Close">×</button>
-    <div class="auth-brand"><span class="lm">A</span> Jobnora</div>
+    <div class="auth-brand"><svg class="jobnora-mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="jnGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4338F5"/><stop offset=".58" stop-color="#2563EB"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs><path d="M10 14c0-5 6-8 10-4l25 22V16c0-3 2-5 5-5h4v36c0 5-6 8-10 4L19 29v19c0 3-2 5-5 5h-4V14Z" fill="url(#jnGrad)"/><path d="M42 11 57 2v17L42 11Z" fill="#06B6D4"/></svg><span class="jobnora-wordmark">Jobnora</span></div>
     <span class="eyebrow">Your private workspace</span>
     <h2 id="authTitle">Welcome back.</h2>
     <p id="authSub" class="lead" style="font-size:.95rem;margin-top:10px">Log in or create an account to continue your request.</p>

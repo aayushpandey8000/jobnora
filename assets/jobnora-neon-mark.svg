@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00f5ff"/><stop offset=".4" stop-color="#126bff"/><stop offset=".72" stop-color="#9b36ff"/><stop offset="1" stop-color="#ff42f5"/></linearGradient><filter id="b" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="100" height="100" rx="50" fill="#03091f"/><path d="M50 8 C72 8 89 26 91 46 C94 68 77 87 56 91 C38 94 18 80 11 62 C3 42 16 22 34 12 C39 9 44 8 50 8Z" fill="none" stroke="url(#g)" stroke-width="4" filter="url(#b)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Jobnora logo mark">
+<defs>
+ <linearGradient id="j" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35e8ff"/><stop offset=".42" stop-color="#287bff"/><stop offset=".72" stop-color="#7456ff"/><stop offset="1" stop-color="#d63cff"/></linearGradient>
+ <linearGradient id="wing" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#36e9ff"/><stop offset="1" stop-color="#176cff"/></linearGradient>
+ <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<path d="M58 8 C58 8 61 22 66 29 C71 35 80 37 88 39 C79 42 71 44 66 50 C62 55 60 64 58 73 C55 62 53 55 48 50 C43 45 35 42 27 39 C36 36 44 34 49 29 C54 23 56 14 58 8Z" fill="url(#j)"/>
+<path d="M40 30 C40 30 41 45 41 57 L41 63 C41 77 31 88 18 88 C10 88 4 84 0 77 L13 66 C15 71 18 73 22 73 C27 73 29 69 29 62 L29 39 C29 33 33 30 40 30Z" fill="url(#wing)" transform="translate(8 0) scale(.96 1)" filter="url(#glow)"/>
+<path d="M19 54 C13 54 8 49 5 42 C3 38 1 32 1 29 C1 25 4 23 9 23 L25 23 C35 23 42 28 47 37 L57 54Z" fill="url(#wing)" opacity=".98" transform="translate(8 0)"/>
+</svg>

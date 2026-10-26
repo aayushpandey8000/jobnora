@@ -1239,7 +1239,7 @@ initAuth();
 })();
 </script>
 <script>
-const FORM="https://spidey2.app.n8n.cloud/webhook/applypilot-submit";
+const FORM="https://jobnora.app.n8n.cloud/webhook/applypilot-submit";
 const themeToggle=document.getElementById("themeToggle"),themeIcon=document.getElementById("themeIcon"),themeLabel=document.getElementById("themeLabel");
 function applyTheme(t){document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem("jobnora-theme",t)}catch(e){}const light=t==="light";if(themeToggle){themeToggle.setAttribute("aria-label",light?"Switch to dark theme":"Switch to light theme");themeIcon.textContent=light?"☾":"☀";themeLabel.textContent=light?"Dark":"Light"}}
 applyTheme(document.documentElement.getAttribute("data-theme")==="light"?"light":"dark");
